@@ -6,9 +6,9 @@ from datetime import datetime, date
 from collections import defaultdict
 import pandas as pd
 
-# ============================================================
+# ===========================================================
 # CONFIG (RELLENA SOLO LO QUE FALTA)
-# ============================================================
+# ===========================================================
 ODOO_URL = os.getenv('ODOO_URL')
 ODOO_USER = os.getenv('ODOO_USER')
 ODOO_PASSWORD = os.getenv('ODOO_PASSWORD')
