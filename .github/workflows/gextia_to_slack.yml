@@ -37,4 +37,5 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
           SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
         run: |
-          python pipelinigit.py --lookback-minutes "${{ inputs.lookback_minutes || '70' }}"
+          python pipelinegit.py --lookback-minutes "${{ inputs.lookback_minutes || '70' }}"
+
