@@ -2,7 +2,7 @@ name: Gextia → Slack
 
 on:
   schedule:
-    - cron: "50 14 * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch:
     inputs:
       lookback_minutes:
