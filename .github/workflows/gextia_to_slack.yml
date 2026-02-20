@@ -2,7 +2,7 @@ name: Gextia → Slack
 
 on:
   schedule:
-    - cron: "18 14 * * *"
+    - cron: "27 14 * * *"
   workflow_dispatch:
     inputs:
       lookback_minutes:
@@ -40,5 +40,5 @@ jobs:
           SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
 
         run: |
-          python pipelinegit.py --lookback-minutes "${{ inputs.lookback_minutes || '70' }}"
+          python pipelinegit.py --lookback-minutes "70"
 
