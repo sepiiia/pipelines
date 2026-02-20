@@ -1,0 +1,39 @@
+name: Gextia → Slack
+
+on:
+  schedule:
+    - cron: "5 * * * *"   # cada hora a y :05 (UTC)
+  workflow_dispatch:
+    inputs:
+      lookback_minutes:
+        description: "Minutos hacia atrás"
+        required: true
+        default: "70"
+  concurrency:
+    group: gextia-to-slack
+    cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run pipeline
+        env:
+          GEXTIA_API_URL: ${{ secrets.ODOO_URL }}
+          GEXTIA_API_TOKEN: ${{ secrets.ODOO_PASSWORD }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+        run: |
+          python pipelinigit.py --lookback-minutes "${{ inputs.lookback_minutes || '70' }}"
