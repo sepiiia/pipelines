@@ -1,0 +1,12 @@
+name: Test Cron Job
+
+on:
+  schedule:
+    - cron: "*/1 * * * *"  # Esto ejecutará el pipeline cada minuto para pruebas rápidas
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check date
+        run: date  # Esto solo imprimirá la fecha y hora para saber si se ejecuta
