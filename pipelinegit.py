@@ -9,10 +9,12 @@ import pandas as pd
 # ============================================================
 # CONFIG (RELLENA SOLO LO QUE FALTA)
 # ============================================================
-ODOO_URL = os.getenv("ODOO_URL")  # URL de Odoo
-ODOO_DB = os.getenv("ODOO_DB")    # Base de datos de Odoo
-ODOO_USER = os.getenv("ODOO_USER")  # Usuario de Odoo
-ODOO_PASSWORD = os.getenv("ODOO_PASSWORD")  # Contraseña de Odoo
+ODOO_URL = os.getenv('ODOO_URL')
+ODOO_USER = os.getenv('ODOO_USER')
+ODOO_PASSWORD = os.getenv('ODOO_PASSWORD')
+ODOO_DB = os.getenv('ODOO_DB')
+SLACK_BOT_TOKEN = os.getenv('SLACK_BOT_TOKEN')
+SLACK_CHANNEL_ID = os.getenv('SLACK_CHANNEL_ID')
 
 MAX_ROWS = 5000
 SEND_IF_ZERO = False  # True => si no hay pendientes, no envía nada
