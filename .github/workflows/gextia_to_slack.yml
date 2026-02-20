@@ -9,14 +9,15 @@ on:
         description: "Minutos hacia atrás"
         required: true
         default: "70"
-  concurrency:
-    group: gextia-to-slack
-    cancel-in-progress: false
+  
 
 jobs:
   run:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    concurrency:
+      group: gextia-to-slack
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
