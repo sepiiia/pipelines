@@ -2,7 +2,7 @@ name: Gextia → Slack
 
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "0 11 * * *"
   workflow_dispatch:
     
 jobs:
